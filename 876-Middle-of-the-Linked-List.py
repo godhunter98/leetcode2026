@@ -5,14 +5,10 @@
 #         self.next = next
 class Solution:
     def middleNode(self, head: ListNode | None) -> list[int] | None:
-        list_len = 0
-        curr = head
-        while curr:
-            list_len+=1
-            curr=curr.next
-
-        curr=head
-        for _ in range(list_len//2):
-            if curr is not None:
-                curr = curr.next
-        return curr
+        # 2 pointers approach
+        slow = head
+        fast = head
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
