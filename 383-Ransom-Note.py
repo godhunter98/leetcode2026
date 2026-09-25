@@ -1,11 +1,7 @@
+from collections import Counter
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        mag_count = {}
-        for i in magazine:
-            if i in mag_count:    
-             mag_count[i] +=1
-            else:
-                mag_count[i] = 1
+        mag_count = Counter(magazine)
         for c in ransomNote:
             if c not in mag_count:
                 return False
